@@ -1,13 +1,18 @@
-# [N Choose K Calculator](https://www.codewars.com/kata/quick-n-choose-k-calculator)
+# [Kata: n-choose-k calculator](https://www.codewars.com/kata/quick-n-choose-k-calculator)
 
-Explain the challenge as completely & clearly as you can.
+This kata asks us to create a function that calculates **binomial functions**.
 
-_function name_: Function
-* Args: (how many args does this function take?)
-  * (List each arg, it's type, and it's purpose)
-* Return: (what type does this function return?)
-  * (Describe the return value)
-* Behavior: (What does this function do?)
+For example, if I have 52 cards, and I want to choose 5 of them, the function should tell me how many different ways I can choose 5 cards from the deck of 52 (in this case, the answer is 2,598,960).
+
+This is also called **n choose k**: given a set of **n** items, how many ways can I choose **k** items.
+
+n_choose_k: Function
+* Args: 2
+  * n: Number -> the total number of items in the main group.
+  * k: Number -> the size of the group we want to extract from the main group.
+* Return: Number
+  * This function outputs the number of ways that I can choose k-size groups from this set of n items.
+* Behavior: Given a group of n items, this function calculates how many ways I can choose a group of k items from the main group.
 
 '''js
 // copy of your polished solution for easy reference.
@@ -29,9 +34,22 @@ _function name_: Function
 
 ## Input Analysis
 
-What characteristics of your inputs are important for your solution?  
+* What is k's symmetrical number?
+  * n = 3 -> (1,2), (0, 3)
+  * n = 4 -> (0,4), (1,3), (2)
+  * we could convert larger partners to smaller partners to make it work more efficiently.
+* is n even or odd?
+* are n and k >= or equal to 0?
+* is n > k?
+* are they whole numbers?
+
 
 What groupings will you have to consider when building your solution?  
+* 0 =< k =< n
+  * This is the "all good" scenario
+* n and/or k are less than 0
+* k is greater than n
+* n is even or odd
 
 How did you use this information to select your test cases?
 
